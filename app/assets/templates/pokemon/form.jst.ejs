@@ -23,9 +23,9 @@
     <select
       id='pokemon_poke_type'
       name='pokemon[poke_type]'>
-      <% Pokemon::TYPES.each do |type|%>
+      <% Pokedex.POKEMON_TYPES.forEach(function(type){ %>
         <option><%= type %></option>
-      <% end %>
+      <% }); %>
     </select>
   </div>
 

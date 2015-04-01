@@ -1,13 +1,13 @@
 <div class="detail">
-  <img src="<%%= pokemon.escape('image_url') %>"></img>
+  <img src="<%= pokemon.escape('image_url') %>"></img>
   <br>
-  <%% for (var attr in pokemon.attributes) { %>
-    <%% if (pokemon.get(attr) && attr !== 'id' && attr !== 'image_url') { %>
-      <span style="font-weight:bold;"><%%= attr %>:</span>
-      <%%= pokemon.get(attr) %>
+  <% for (var attr in pokemon.attributes) { %>
+    <% if (pokemon.get(attr) && attr !== 'id' && attr !== 'image_url') { %>
+      <span style="font-weight:bold;"><%= attr %>:</span>
+      <%= pokemon.get(attr) %>
       <br>
-    <%% } %>
-  <%% } %>
+    <% } %>
+  <% } %>
 </div>
 <span style="font-weight: bold;">Toys:</span><br>
 <ul class="toys"></ul>

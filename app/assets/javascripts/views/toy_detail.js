@@ -1,4 +1,5 @@
 Pokedex.Views.ToyDetail = Backbone.View.extend({
+  template: JST['toy/detail'],
   events: {
     'change select':'reassignToy'
   },
@@ -8,7 +9,7 @@ Pokedex.Views.ToyDetail = Backbone.View.extend({
   },
 
   render: function () {
-    var content = JST['toyDetail']({ pokes: this.pokes, toy: this.model });
+    var content = this.template({ pokes: this.pokes, toy: this.model });
     this.$el.html(content);
     return this;
   },
@@ -23,7 +24,7 @@ Pokedex.Views.ToyDetail = Backbone.View.extend({
       success: (function () {
         pokemon.toys().remove(toy);
         Backbone.history.navigate(
-          'pokemon/' + toy.get('pokemon_id') + '/toys/' + toy.id,
+          '/pokemon/' + toy.get('pokemon_id') + '/toys/' + toy.id,
           { trigger: true }
         );
       }).bind(this)

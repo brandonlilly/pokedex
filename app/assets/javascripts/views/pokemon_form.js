@@ -1,10 +1,11 @@
 Pokedex.Views.PokemonForm = Backbone.View.extend({
+  template: JST['pokemon/form'],
   events: {
     'submit form':'savePokemon'
   },
 
   render: function () {
-    var content = JST['pokemonForm']({
+    var content = this.template({
       pokemon: this.model,
       pokes: this.collection
     });
@@ -20,7 +21,7 @@ Pokedex.Views.PokemonForm = Backbone.View.extend({
       success: function () {
         this.collection.add(this.model);
         Backbone.history.navigate(
-          'pokemon/' + this.model.id,
+          '/pokemon/' + this.model.id,
           { trigger: true}
         );
       }.bind(this)

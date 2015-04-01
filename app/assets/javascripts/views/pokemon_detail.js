@@ -1,7 +1,9 @@
 Pokedex.Views.PokemonDetail = Backbone.View.extend({
+  template: JST['pokemon/detail'],
   events: {
     'click ul.toys li':'selectToyFromList'
   },
+
 
   refreshPokemon: function (options) {
     this.model.fetch({
@@ -13,11 +15,11 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
   },
 
   render: function () {
-    var content = JST['pokemonDetail']({ pokemon: this.model });
+    var content = this.template({ pokemon: this.model });
     this.$el.html(content);
 
     this.model.toys().each(function (toy) {
-      var content = JST['toyListItem']({ toy: toy });
+      var content = JST['toy/list_item']({ toy: toy });
       this.$el.find('ul.toys').append(content);
     }.bind(this))
     return this;
@@ -27,7 +29,7 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
     var toyId = $(event.currentTarget).data('id');
     var pokemonId = $(event.currentTarget).data('pokemon-id');
     Backbone.history.navigate(
-      'pokemon/' + pokemonId + '/toys/' + toyId,
+      '/pokemon/' + pokemonId + '/toys/' + toyId,
       { trigger: true }
     );
   }

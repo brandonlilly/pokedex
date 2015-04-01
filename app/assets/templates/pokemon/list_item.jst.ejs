@@ -1,6 +1,6 @@
-<li class='poke-list-item' data-id="<%%= pokemon.get('id') %>">
-  <%% var shortInfo = ['name', 'poke_type'] %>
-  <%% shortInfo.forEach(function (attr) { %>
-    <%%= attr %>: <%%=  pokemon.get(attr) %><br>
-  <%% }); %>
+<li class='poke-list-item' data-id="<%= pokemon.get('id') %>">
+  <% var shortInfo = ['name', 'poke_type'] %>
+  <% shortInfo.forEach(function (attr) { %>
+    <%= attr %>: <%=  pokemon.get(attr) %><br>
+  <% }); %>
 </li>
