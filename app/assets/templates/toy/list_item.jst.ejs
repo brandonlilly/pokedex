@@ -1,0 +1,7 @@
+<li class="toy-list-item"
+    data-id="<%%= toy.get('id') %>"
+    data-pokemon-id="<%%= toy.get('pokemon_id') %>">
+  <%% ['name', 'happiness', 'price'].forEach(function (attr) { %>
+    <%%= attr %>: <%%=  toy.get(attr) %><br>
+  <%% }); %>
+</li>

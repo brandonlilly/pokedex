@@ -8,7 +8,6 @@ Pokedex.Views.ToyDetail = Backbone.View.extend({
   },
 
   render: function () {
-    // debugger
     var content = JST['toyDetail']({ pokes: this.pokes, toy: this.model });
     this.$el.html(content);
     return this;
@@ -23,7 +22,6 @@ Pokedex.Views.ToyDetail = Backbone.View.extend({
     toy.save({}, {
       success: (function () {
         pokemon.toys().remove(toy);
-        // this.$el.empty();
         Backbone.history.navigate(
           'pokemon/' + toy.get('pokemon_id') + '/toys/' + toy.id,
           { trigger: true }
